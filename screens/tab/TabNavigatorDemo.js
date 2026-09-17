@@ -1,6 +1,7 @@
 // 3- Tab Navigator
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View, Text, Pressable, StyleSheet } from "react-native";
+import ProductosStack from "./ProductosStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -13,20 +14,20 @@ function InicioScreen() {
   );
 }
 
-function ProductosScreen() {
-  return (
-    <View style={estilos.pantalla}>
-      <Text style={estilos.titulo}>Productos</Text>
-      <Text style={estilos.texto}>Acá van los productos</Text>
-    </View>
-  );
-}
-
 function PerfilScreen() {
   return (
     <View style={estilos.pantalla}>
       <Text style={estilos.titulo}>Perfil</Text>
       <Text style={estilos.texto}>Información de usuario</Text>
+    </View>
+  );
+}
+
+function AjustesScreen() {
+  return (
+    <View style={estilos.pantalla}>
+      <Text style={estilos.titulo}>Ajustes</Text>
+      <Text style={estilos.texto}>Preferencias de la aplicación</Text>
     </View>
   );
 }
@@ -61,16 +62,22 @@ export default function TabNavigatorDemo({ navigation }) {
       />
       <Tab.Screen
         name="Productos"
-        component={ProductosScreen}
+        component={ProductosStack}
         options={{
           tabBarLabel: "Productos",
           tabBarIcon: () => <Text>🛒</Text>,
+          title: "Productos",
         }}
       />
       <Tab.Screen
         name="Perfil"
         component={PerfilScreen}
         options={{ tabBarLabel: "Perfil", tabBarIcon: () => <Text>👤</Text> }}
+      />
+      <Tab.Screen
+        name="Ajustes"
+        component={AjustesScreen}
+        options={{ tabBarLabel: "Ajustes", tabBarIcon: () => <Text>⚙️</Text> }}
       />
     </Tab.Navigator>
   );

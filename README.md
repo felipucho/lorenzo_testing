@@ -15,8 +15,11 @@ entrar a cada uno.
    parámetros con `navigation.navigate(...)` / `route.params`.
 
 3. **Tab Navigator** ([screens/tab/TabNavigatorDemo.js](screens/tab/TabNavigatorDemo.js))
-   Navegación por pestañas inferiores (Inicio, Productos, Perfil) con
-   `@react-navigation/bottom-tabs`.
+   Navegación por pestañas inferiores (Inicio, Productos, Perfil, Ajustes)
+   con `@react-navigation/bottom-tabs`. La pestaña **Productos** contiene un
+   Stack Navigator anidado ([screens/tab/ProductosStack.js](screens/tab/ProductosStack.js))
+   que reutiliza las pantallas `Productos → Detalle` del ejemplo 2, para
+   mostrar cómo combinar tabs con un stack dentro de una pestaña.
 
 Todo se integra en [App.js](App.js) mediante un Stack Navigator externo cuya
 primera pantalla es el menú ([screens/MenuScreen.js](screens/MenuScreen.js)).
