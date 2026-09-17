@@ -10,9 +10,12 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.felipucho.tiposnavegaciones"
     },
-    "android": {},
+    "android": {
+      "package": "com.felipucho.tiposnavegaciones"
+    },
     "web": {
       "bundler": "metro"
     }

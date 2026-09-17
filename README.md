@@ -30,3 +30,24 @@ npm start
 
 Luego abrí la app con Expo Go (Android/iOS) escaneando el QR, o presioná
 `w` para abrirlo en el navegador.
+
+## Compilar un binario con EAS Build
+
+El proyecto ya incluye [`eas.json`](eas.json) con tres perfiles (`development`,
+`preview`, `production`) y los identificadores de app en
+[`app.json`](app.json) (`com.felipucho.tiposnavegaciones`). Pasos (requieren
+una cuenta de Expo y login interactivo, así que se corren desde tu propia
+terminal, no desde este asistente):
+
+```bash
+npm install -g eas-cli
+eas login
+eas build:configure   # solo la primera vez, si aún no existe un projectId
+eas build --platform all --profile preview
+```
+
+- `--profile production` genera el binario final para las stores.
+- `--platform android` o `--platform ios` para compilar uno solo.
+- El `android.package` / `ios.bundleIdentifier` en `app.json` son valores
+  provisorios (`com.felipucho.tiposnavegaciones`); cambialos antes de
+  publicar si querés otro identificador.
